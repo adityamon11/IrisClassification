@@ -12,7 +12,7 @@ def CalculateDecisionTreeAccuracy():
 	data = iris.data;
 	target = iris.target;
 
-	data_train,data_test,target_train,target_test = train_test_split(data,target,test_size=0.75);
+	data_train,data_test,target_train,target_test = train_test_split(data,target,test_size=0.25);
 
 	classifier = tree.DecisionTreeClassifier();
 	classifier.fit(data_train,target_train);
@@ -27,9 +27,9 @@ def CalculateKNNAccuracy():
 	data = iris.data;
 	target = iris.target;
 
-	data_train,data_test,target_train,target_test = train_test_split(data,target,test_size=0.75);
+	data_train,data_test,target_train,target_test = train_test_split(data,target,test_size=0.25);
 
-	classifier = KNeighborsClassifier();
+	classifier = KNeighborsClassifier(n_neighbors=5);
 	classifier.fit(data_train,target_train);
 	predictions = classifier.predict(data_test);
 
